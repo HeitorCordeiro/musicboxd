@@ -1,0 +1,32 @@
+# Build / CMake
+/build/
+/build-*/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+/CTestTestfile.cmake
+
+# Executables
+/musicboxd
+/Musicboxd
+/build/musicboxd
+
+# Object files
+*.o
+*.obj
+
+# Libraries
+*.so
+*.dylib
+*.dll
+
+# Logs
+*.log
+
+# IDEs / editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store

@@ -19,7 +19,6 @@ string Artista::getGenero() {
 
 void Artista::adicionarMusica(Musica* musica) {
     // implementação 
-    musicas.push_back(musica);
 }
 
 void Artista::listarMusicas() {

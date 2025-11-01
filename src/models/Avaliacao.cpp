@@ -20,7 +20,6 @@ bool Avaliacao::isOculto() {
 }
 
 void Avaliacao::ocultar() {
-    oculto = true;
     // implementação
 }
 
