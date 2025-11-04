@@ -1,34 +1,43 @@
-// Arquivo: Musica.h
+
 #ifndef MUSICA_H
 #define MUSICA_H
 
 #include <string>
 #include <vector>
-#include <ctime>
-using namespace std;
 
+// Representa uma música no sistema
 class Artista;
 class Avaliacao;
 
 class Musica {
 private:
-    string titulo;
-    string genero;
-    float duracao;
-    string album;
-    int anoLancamento;
-    string capa;
-    vector<string> plataformas;
-    Artista* artista;
-    vector<Avaliacao*> avaliacoes;
+    std::string titulo; // Título da música
+    std::string genero; // Gênero musical
+    float duracao; // Duração em segundos
+    std::string album; // Nome do álbum
+    int anoLancamento; // Ano de lançamento
+    std::string capa; // Caminho ou nome da imagem de capa
+    std::vector<std::string> plataformas; // Plataformas onde a música está disponível
+    Artista* artista; // Ponteiro para o artista
+    std::vector<Avaliacao*> avaliacoes; // Avaliações recebidas
 public:
-    Musica(string titulo, string genero, float duracao, Artista* artista, string album, int ano, string capa, vector<string> plataformas);
-    string getTitulo();
-    Artista* getArtista();
-    void adicionarAvaliacao(Avaliacao* avaliacao);
-    float calcularMedia();
-    void mostrarInfo();
+    // Construtor da música
+    Musica(std::string titulo, std::string genero, float duracao, Artista* artista, std::string album, int ano, std::string capa, std::vector<std::string> plataformas);
 
+    // Retorna o título da música
+    std::string getTitulo() const;
+
+    // Retorna o ponteiro para o artista
+    Artista* getArtista() const;
+
+    // Adiciona uma avaliação à música
+    void adicionarAvaliacao(Avaliacao* avaliacao);
+
+    // Calcula a média das avaliações
+    float calcularMedia() const;
+
+    // Exibe as informações da música
+    void mostrarInfo() const;
 };
 
 #endif // MUSICA_H

@@ -1,27 +1,30 @@
-// Arquivo: Sistema.h
+
 #ifndef SISTEMA_H
 #define SISTEMA_H
 
 #include <vector>
 #include <string>
-using namespace std;
+#include "Musica.h"
+#include "Artista.h"
 
-class Usuario;
-class Musica;
-class Artista;
-
+// Classe responsável por gerenciar o sistema musical
 class Sistema {
 private:
-    vector<Usuario*> usuarios;
-    vector<Musica*> musicas;
-    vector<Artista*> artistas;
+    std::vector<Musica*> musicas; // Lista de músicas cadastradas
+    std::vector<Artista*> artistas; // Lista de artistas cadastrados
 public:
+    // Construtor e destrutor
     Sistema();
-    void cadastrarUsuario(string nome, string email);
-    void cadastrarArtista(string nome, string genero);
-    void cadastrarMusica(string titulo, string genero, float duracao, string album, int ano, string capa, vector<string> plataformas, string artistaNome);
-    void listarMusicas();
+    ~Sistema();
 
+    // Cadastra um novo artista
+    void cadastrarArtista(std::string nome, std::string genero);
+
+    // Cadastra uma nova música associada a um artista
+    void cadastrarMusica(std::string titulo, std::string genero, float duracao, std::string album, int ano, std::string capa, std::vector<std::string> plataformas, std::string artistaNome);
+
+    // Lista todas as músicas cadastradas
+    void listarMusicas() const;
 };
 
 #endif // SISTEMA_H
