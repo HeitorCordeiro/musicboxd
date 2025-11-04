@@ -1,4 +1,3 @@
-// Arquivo: Artista.h
 #ifndef ARTISTA_H
 #define ARTISTA_H
 
@@ -22,4 +21,4 @@ public:
 
 };
 
-#endif // ARTISTA_H
+#endif 

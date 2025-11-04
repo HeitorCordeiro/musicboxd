@@ -5,22 +5,38 @@
 using namespace std;
 
 Artista::Artista(string nome, string genero)
-    : nome(nome), genero(genero) {
-    // implementação 
+    : nome(nome), genero(genero) { 
 }
 
 string Artista::getNome() {
-    // implementação 
+    return nome;
 }
 
 string Artista::getGenero() {
-    // implementação 
+    return genero;
 }
 
 void Artista::adicionarMusica(Musica* musica) {
-    // implementação 
+    if (musica != nullptr) {
+        musicas.push_back(musica);
+    } else {
+        cout << "Não é possível adicionar uma música nula ao artista." << endl;
+    }
 }
 
 void Artista::listarMusicas() {
-    // implementação 
+    cout << "Artista: " << nome << " (" << genero << ")" << endl;
+
+    if (musicas.empty()) {
+        cout << "Nenhuma musica cadastrada para este artista." << endl;
+        return;
+    } 
+
+    for (size_t i = 0; i < musicas.size(); i++) {
+        if (musicas[i] != nullptr) {
+            cout << "  " << (i + 1) << ". " << musicas[i]->getTitulo() << endl;
+        } else {
+            cout << "  " << (i + 1) << ". <musica nula>" << endl;
+        }
+    }
 }

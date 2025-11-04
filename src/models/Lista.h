@@ -1,4 +1,3 @@
-// Arquivo: Lista.h
 #ifndef LISTA_H
 #define LISTA_H
 
@@ -19,4 +18,4 @@ public:
 
 };
 
-#endif // LISTA_H
+#endif
