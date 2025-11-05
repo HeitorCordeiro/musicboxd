@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto musicboxd</title>
+    <!-- Carrega o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Carrega a biblioteca Mermaid.js para renderizar o diagrama -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    
+    <!-- Define a fonte Inter (preferida) e estilos base -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        /* Adiciona padding no topo para compensar o header fixo ao rolar */
+        html {
+            scroll-padding-top: 6rem; /* 96px */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #d1d5db; /* text-gray-300 */
+        }
+        
+        /* Adiciona um fundo claro para o diagrama Mermaid renderizado */
+        .mermaid {
+            background-color: #f9fafb; /* bg-gray-50 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1.5rem; /* p-6 */
+        }
+
+        /* Estilo para os "cards" de conteúdo */
+        .content-card {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
+            border-radius: 1rem; /* rounded-xl */
+            padding: 2.5rem; /* p-10 */
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Cabeçalho de Navegação -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-lg bg-gray-900/70 border-b border-gray-700">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Título do Projeto -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-white">musicboxd</a>
+                </div>
+                <!-- Links de Navegação (Atualizados) -->
+                <nav class="hidden md:flex flex-wrap justify-center gap-x-6">
+                    <a href="#sobre" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Sobre</a>
+                    <a href="#features" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Funcionalidades</a>
+                    <a href="#video" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Vídeo</a>
+                    <a href="#tech" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Classes</a>
+                    <a href="#diagram" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Diagrama</a>
+                    <a href="#run" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Executar</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Seção Hero (Home) -->
+        <section id="home" class="pt-24 pb-16 text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                Bem-vindo ao musicboxd
+            </h1>
+            <p class="mt-6 text-xl text-gray-300 max-w-3xl mx-auto">
+                Um sistema orientado a objetos em C++ para catalogar músicas e avaliações, inspirado no Letterboxd.
+            </p>
+        </section>
+
+        <!-- Container para os "cards" -->
+        <div class="space-y-16 sm:space-y-20 pb-24">
+
+            <!-- Card: Sobre o Projeto -->
+            <section id="sobre" class="content-card text-center">
+                <h2 class="text-3xl font-bold text-white mb-6">Sobre o Projeto</h2>
+                <p class="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                    Este projeto é um sistema de informação em C++ inspirado no Letterboxd, focado em música. Permite aos usuários catalogar músicas, artistas e escrever avaliações, criando uma pequena rede social de descoberta musical.
+                </p>
+            </section>
+
+            <!-- Card: Funcionalidades -->
+            <section id="features" class="content-card">
+                <h2 class="text-3xl font-bold text-white mb-8 text-center">Funcionalidades Principais</h2>
+                <ul class="space-y-4 text-lg text-gray-300 max-w-2xl mx-auto">
+                    <li class="flex items-start">
+                        <svg class="flex-shrink-0 h-6 w-6 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                        <span><strong class="font-semibold text-white">Cadastro de Usuários:</strong> Diferenciação entre Administradores (com poder de moderação) e Usuários Comuns.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="flex-shrink-0 h-6 w-6 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                        <span><strong class="font-semibold text-white">Sistema Social:</strong> Permite seguir usuários, avaliar músicas, visualizar outras avaliações e curtir destaques.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="flex-shrink-0 h-6 w-6 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                        <span><strong class="font-semibold text-white">Moderação:</strong> Administradores podem suspender usuários, gerenciar músicas e ocultar/revelar avaliações.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="flex-shrink-0 h-6 w-6 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                        <span><strong class="font-semibold text-white">Persistência de Dados:</strong> O estado do sistema é salvo em arquivos `system.json` e `users.db` e recarregado ao iniciar.</span>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Card: Vídeo de Apresentação -->
+            <section id="video" class="content-card">
+                <h2 class="text-3xl font-bold text-white mb-8 text-center">Vídeo de Apresentação</h2>
+                
+                <div class="w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden border border-gray-600">
+                    <iframe 
+                        class="w-full h-full" 
+                        src="https://www.youtube-nocookie.com/embed/TWNw2JKh8fA" 
+                        title="Vídeo de Apresentação do Projeto musicboxd" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Aviso atualizado (foco em legendas e descrição) -->
+                <p class="text-center text-gray-400 mt-6 max-w-2xl mx-auto">
+                    <strong class="text-cyan-300">Nota:</strong> Por favor, <strong class="text-white">ative as legendas automáticas (CC)</strong> e <strong class="text-white">leia a descrição do vídeo no YouTube</strong>.
+                </p>
+            </section>
+
+            <!-- Card: Resumo das Classes Principais (Atualizado) -->
+            <section id="tech" class="content-card">
+                <h2 class="text-3xl font-bold text-white mb-8 text-center">Resumo das Classes Principais</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                    
+                    <div class="bg-gray-700/50 p-4 rounded-lg border border-gray-600">
+                        <h4 class="text-xl font-semibold text-cyan-300 mb-1">Sistema</h4>
+                        <p class="text-gray-300">Classe central (Façade) que gerencia todos os vetores de dados (usuários, músicas) e controla a persistência.</p>
+                    </div>
+
+                    <div class="bg-gray-700/50 p-4 rounded-lg border border-gray-600">
+                        <h4 class="text-xl font-semibold text-cyan-300 mb-1">Usuario</h4>
+                        <p class="text-gray-300">Armazena dados de login, senha, e as listas de seguidores, avaliações criadas e status (admin/ativo/suspenso).</p>
+                    </div>
+
+                    <div class="bg-gray-700/50 p-4 rounded-lg border border-gray-600">
+                        <h4 class="text-xl font-semibold text-cyan-300 mb-1">Artista</h4>
+                        <p class="text-gray-300">Entidade que armazena o nome e gênero, além de uma lista de ponteiros para suas músicas cadastradas.</p>
+                    </div>
+
+                    <div class="bg-gray-700/50 p-4 rounded-lg border border-gray-600">
+                        <h4 class="text-xl font-semibold text-cyan-300 mb-1">Musica</h4>
+                        <p class="text-gray-300">Armazena os dados da música (título, álbum) e um ponteiro para seu Artista. Gerencia o vetor de avaliações recebidas.</p>
+                    </div>
+
+                    <div class="bg-gray-700/50 p-4 rounded-lg border border-gray-600">
+                        <h4 class="text-xl font-semibold text-cyan-300 mb-1">Avaliacao</h4>
+                        <p class="text-gray-300">Classe base para avaliações. Contém nota, comentário, ponteiro para o autor e status de moderação (oculto).</p>
+                    </div>
+
+                    <div class="bg-gray-700/50 p-4 rounded-lg border border-gray-600">
+                        <h4 class="text-xl font-semibold text-cyan-300 mb-1">AvaliacaoComDestaque</h4>
+                        <p class="text-gray-300">Classe derivada (Herança) que adiciona a funcionalidade de "curtidas" (um vetor de emails) a uma avaliação.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Card: Diagrama de Classes -->
+            <section id="diagram" class="content-card">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-8 text-center">Diagrama de Classes</h2>
+                <div class="flex justify-center">
+                    <!-- Bloco para renderização do Mermaid -->
+                    <pre class="mermaid">
+                        classDiagram
+                        direction LR
+
+                        class Sistema {
+                            - usuarios : Usuario[]
+                            - musicas : Musica[]
+                            - artistas : Artista[]
+                            + cadastrarUsuario(nome, email)
+                            + cadastrarArtista(nome, genero)
+                            + cadastrarMusica(titulo, ...)
+                            + salvarSistema(caminho)
+                            + carregarSistema(caminho)
+                            + encontrarUsuarioPorEmail(email)
+                            + adicionarAvaliacao(...)
+                            + suspenderUsuario(email, motivo)
+                            + ensureAdminExists()
+                        }
+
+                        class Usuario {
+                            - nome : string
+                            - email : string
+                            - admin : bool
+                            - status : string
+                            - seguindo : Usuario[]
+                            - seguidores : Usuario[]
+                            - avaliacoes : Avaliacao[]
+                            - senhaHash : size_t
+                            + setSenha(senha)
+                            + verificarSenha(senha)
+                            + seguir(outro)
+                            + adicionarAvaliacao(a)
+                            + removerAvaliacao(a)
+                            + isAdmin()
+                        }
+
+                        class Artista {
+                            - nome : string
+                            - genero : string
+                            - musicas : Musica[]
+                            + getNome()
+                            + adicionarMusica(m)
+                        }
+
+                        class Musica {
+                            - titulo : string
+                            - artista : Artista
+                            - avaliacoes : Avaliacao[]
+                            + getTitulo()
+                            + getArtista()
+                            + adicionarAvaliacao(a)
+                            + calcularMedia()
+                        }
+
+                        class Avaliacao {
+                            # autor : Usuario
+                            # musica : Musica
+                            # nota : int
+                            # comentario : string
+                            # oculto : bool
+                            + getNota()
+                            + getComentario()
+                            + isOculto()
+                            + ocultar()
+                            + revelar()
+                            + mostrarAvaliacao() virtual
+                            + ~Avaliacao() virtual
+                        }
+
+                        class AvaliacaoComDestaque {
+                            - curtidasPor : string[]
+                            + curtir(usuario)
+                            + descurtir(usuario)
+                            + getCurtidas()
+                            + mostrarAvaliacao() override
+                        }
+
+                        Sistema "1" -- "*" Usuario : gerencia
+                        Sistema "1" -- "*" Musica : gerencia
+                        Sistema "1" -- "*" Artista : gerencia
+
+                        Usuario "1" -- "*" Avaliacao : faz
+                        Usuario "1..*" -- "0..*" Usuario : segue
+                        Artista "1" -- "*" Musica : tem
+                        Musica "1" -- "*" Avaliacao : recebe
+                        Avaliacao <|-- AvaliacaoComDestaque : herança
+                    </pre>
+                </div>
+                
+                <div class="mt-8 space-y-6 text-lg text-gray-300 leading-relaxed text-center">
+                    <p class="max-w-3xl mx-auto">
+                        O diagrama ilustra a <strong class="font-semibold text-white">Composição</strong> (Sistema *tem* Usuários, Música *tem* Avaliações) e <strong class="font-semibold text-white">Herança</strong> (AvaliacaoComDestaque *é uma* Avaliação), o que permite o uso de <strong class="font-semibold text-white">Polimorfismo</strong> para exibir diferentes tipos de avaliação.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Card: Como Executar -->
+            <section id="run" class="content-card">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-8 text-center">Como Executar o Projeto</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2 text-center">Modo Recomendado (CMake)</h3>
+                        <pre class="bg-gray-900 text-cyan-300 p-4 rounded-lg overflow-x-auto"><code>mkdir -p build
+cd build
+cmake ..
+make -j4
+./musicboxd</code></pre>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2 text-center">Modo Rápido (g++)</h3>
+                        <pre class="bg-gray-900 text-cyan-300 p-4 rounded-lg overflow-x-auto"><code>g++ -std=c++17 -Wall -Wextra \
+    src/main.cpp \
+    src/models/*.cpp \
+    -o musicboxd -Isrc/
+./musicboxd</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Card: Repositório -->
+            <section id="code" class="content-card text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Acesse o Código</h2>
+                <p class="mt-4 text-xl text-gray-300 max-w-2xl mx-auto">
+                    O projeto é de código aberto e está disponível no GitHub.
+                </p>
+                <div class="mt-10">
+                    <a href="https://github.com/heitorcordeiro/musicboxd" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition-colors duration-200 shadow-lg">
+                        <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                        Acessar Repositório
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="border-t border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-gray-400">
+            <p>&copy; 2024 Projeto musicboxd. Baseado no repositório de Heitor Cordeiro.</p>
+        </div>
+    </footer>
+
+    <!-- Script para inicializar o Mermaid.js -->
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</body>
+</html>
+
+
+
+
+
+

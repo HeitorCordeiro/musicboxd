@@ -3,40 +3,48 @@
 #include <iostream>
 
 using namespace std;
+// A implementação fornece acesso a
+// metadados do artista e operações para gerenciar a lista de músicas
+// associadas.
 
 Artista::Artista(string nome, string genero)
-    : nome(nome), genero(genero) { 
+    : nome(nome), genero(genero) {
+
 }
 
-string Artista::getNome() {
+string Artista::getNome(){
     return nome;
 }
 
-string Artista::getGenero() {
+
+string Artista::getGenero(){
     return genero;
 }
 
+void Artista::setNome(const string& novoNome) {
+    this->nome = novoNome;
+}
+
 void Artista::adicionarMusica(Musica* musica) {
-    if (musica != nullptr) {
-        musicas.push_back(musica);
-    } else {
-        cout << "Não é possível adicionar uma música nula ao artista." << endl;
+    musicas.push_back(musica);
+}
+
+void Artista::removerMusica(Musica* musica){
+    // Valida o ponteiro de música antes de tentar remover.
+    if (!musica){
+        return;
+    }
+    for (auto it = musicas.begin(); it != musicas.end(); ++it) {
+        if (*it == musica) {
+            musicas.erase(it);
+            return;
+        }
     }
 }
 
 void Artista::listarMusicas() {
-    cout << "Artista: " << nome << " (" << genero << ")" << endl;
-
-    if (musicas.empty()) {
-        cout << "Nenhuma musica cadastrada para este artista." << endl;
-        return;
-    } 
-
-    for (size_t i = 0; i < musicas.size(); i++) {
-        if (musicas[i] != nullptr) {
-            cout << "  " << (i + 1) << ". " << musicas[i]->getTitulo() << endl;
-        } else {
-            cout << "  " << (i + 1) << ". <musica nula>" << endl;
-        }
+    cout << "Musicas de " << nome << ":" << endl;
+    for (size_t i = 0; i < musicas.size(); ++i) {
+        cout << " - " << (musicas[i] ? musicas[i]->getTitulo() : string("<desconhecida>")) << endl;
     }
 }

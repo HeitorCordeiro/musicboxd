@@ -16,7 +16,9 @@ public:
     Artista(string nome, string genero);
     string getNome();
     string getGenero();
+    void setNome(const string& novoNome);
     void adicionarMusica(Musica* musica);
+    void removerMusica(Musica* musica);
     void listarMusicas();
 
 };

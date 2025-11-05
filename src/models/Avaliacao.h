@@ -24,18 +24,19 @@ public:
 
     // Retorna a nota atribuída
     int getNota();
-
-    // Indica se a avaliação está oculta
+    string getComentario();
+    Usuario* getAutor();
+    Musica* getMusica();
     bool isOculto();
 
     // Oculta a avaliação (marca como invisível)
     void ocultar();
-
-    // Retorna o ponteiro da música avaliada
-    Musica* getMusica();
-
-    // Exibe os dados da avaliação no console
+    void revelar();
     virtual void mostrarAvaliacao();
+    virtual void mostrarAvaliacaoAdmin();
+    void setComentario(const string& c);
+    void setNota(int n);
+    virtual ~Avaliacao() = default;
 
     // Destrutor virtual padrão
     virtual ~Avaliacao() = default;

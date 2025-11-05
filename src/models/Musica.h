@@ -21,17 +21,15 @@ private:
     Artista* artista; // Ponteiro para o artista
     std::vector<Avaliacao*> avaliacoes; // Avaliações recebidas
 public:
-    // Construtor da música
-    Musica(std::string titulo, std::string genero, float duracao, Artista* artista, std::string album, int ano, std::string capa, std::vector<std::string> plataformas);
-
-    // Retorna o título da música
-    std::string getTitulo() const;
-
-    // Retorna o ponteiro para o artista
-    Artista* getArtista() const;
-
-    // Adiciona uma avaliação à música
+    Musica(string titulo, string genero, float duracao, Artista* artista, string album, int ano, string capa, vector<string> plataformas);
+    string getTitulo();
+    Artista* getArtista();
+    void setTitulo(const string& novoTitulo);
     void adicionarAvaliacao(Avaliacao* avaliacao);
+    void removerAvaliacao(Avaliacao* avaliacao);
+    float calcularMedia();
+    void mostrarInfo();
+    const vector<Avaliacao*>& getAvaliacoes() const;
 
     // Calcula a média das avaliações
     float calcularMedia() const;

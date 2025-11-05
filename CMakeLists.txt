@@ -21,6 +21,14 @@ add_executable(musicboxd ${MUSICBOXD_SOURCES})
 
 target_include_directories(musicboxd PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
+# Prefer system-installed nlohmann_json (header-only). This is optional but recommended for robust JSON parsing.
+find_package(nlohmann_json QUIET)
+if (nlohmann_json_FOUND)
+  target_link_libraries(musicboxd PRIVATE nlohmann_json::nlohmann_json)
+else()
+  message(WARNING "nlohmann_json not found. JSON parsing will fail unless installed. On Debian/Ubuntu: sudo apt install nlohmann-json3-dev")
+endif()
+
 option(BUILD_TESTS "Build tests" OFF)
 
 message(STATUS "musicboxd project configured. Sources found: ${MUSICBOXD_SOURCES}")
