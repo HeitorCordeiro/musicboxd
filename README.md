@@ -13,6 +13,14 @@ O objetivo deste projeto é fornecer uma aplicação de terminal que permite:
 - Oferecer menus distintos para Administradores (com poderes de moderação, como ocultar avaliações ou suspender usuários) e Usuários Comuns.
 - Persistir todos os dados (usuários, músicas, artistas, avaliações) em arquivos locais (`users.db` e `system.json`).
 
+## Contribuidores
+
+- Heitor Higino.
+- Vitória das Dores.
+- Thaphylla Pinto.
+- Hugo José.
+- Pablo Henrique
+
 ## Tecnologias e Conceitos Utilizados
 
 - Linguagem: C++ (utilizando o padrão C++17)
